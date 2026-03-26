@@ -27,7 +27,7 @@ class UserApiViewSet(ModelViewSet):
             
             
 class UserView(APIView):          
-    permission_classes = [IsAuthenticated]  # Solo los administradores pueden acceder a esta vista  
+    permission_classes = []  # Solo los administradores pueden acceder a esta vista  
     
     
     def get(self, request):

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-
+import datetime
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +29,14 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+    
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -122,3 +130,8 @@ STATIC_URL = 'static/'
 
 
 AUTH_USER_MODEL = 'users.User'
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=120),
+    
+    }
